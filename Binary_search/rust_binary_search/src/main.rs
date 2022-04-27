@@ -32,7 +32,8 @@ mod tests {
     }
 
     #[test]
-    fn found_target() {
+    // Checking for a value that is in the array
+    fn binary_search_passes() {
         init();
 
         let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
@@ -42,7 +43,8 @@ mod tests {
     }
 
     #[test]
-    fn did_not_find_target(){
+    // Checking for a value that isn't in the array
+    fn binary_search_fails(){
         init();
 
         let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
