@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+  "fmt"
+  "golang.org/x/exp/constraints"
+)
 
 func main() {
     fmt.Println("Hello, World this is Binary Search!")
@@ -10,7 +13,7 @@ func main() {
     fmt.Println(BinarySearch(array, target))
 }
 
-func BinarySearch(a []int, v int) bool{
+func BinarySearch[T constraints.Ordered](a []T, v T) bool{
   l := 0
   r := len(a) - 1
   for l <= r {
