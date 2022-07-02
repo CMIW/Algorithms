@@ -1,7 +1,9 @@
+// Trait all transaction variants should have the execute function
 trait Transaction {
     fn execute(&self);
 }
 
+// Transaction varianta type A
 #[derive(Debug)]
 struct TransactionA<'a>{
     transaction_type: &'a str,
@@ -29,12 +31,14 @@ impl<'a> TransactionA<'a>{
     }
 }
 
+// Implement the transaction trait on variant type A
 impl<'a> Transaction for TransactionA<'a> {
     fn execute(&self) {
         println!("{} Executed!", self.transaction_type)
     }
 }
 
+// Transaction varianta type B
 #[derive(Debug)]
 struct TransactionB<'a>{
     transaction_type: &'a str,
@@ -62,12 +66,14 @@ impl<'a> TransactionB<'a>{
     }
 }
 
+// Implement the transaction trait on variant type B
 impl<'a> Transaction for TransactionB<'a> {
     fn execute(&self) {
         println!("{} Executed!", self.transaction_type)
     }
 }
 
+// Builder for the transaction variant type A
 #[derive(Debug)]
 struct TransactionABuilder;
 
@@ -85,6 +91,7 @@ impl TransactionABuilder {
     }
 }
 
+// Builder for the transaction variant type B
 #[derive(Debug)]
 struct TransactionBBuilder;
 
@@ -108,12 +115,15 @@ mod tests {
 
     #[test]
     fn it_works() {
+        // init al transaction types
         let transaction_a:TransactionA = TransactionA::new();
         let transaction_b:TransactionB = TransactionB::new();
 
+        // build transaction type A
         let transaction_a_builder = TransactionABuilder::new();
         transaction_a_builder.build(&transaction_a);
 
+        // build transaction type B
         let transaction_b_builder = TransactionBBuilder::new();
         transaction_b_builder.build(&transaction_b);
 
