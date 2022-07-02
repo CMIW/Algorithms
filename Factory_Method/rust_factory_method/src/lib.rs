@@ -135,7 +135,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        // init al transaction types
+        // init all transaction types
         let transaction_a:Transactions = Transactions::TransactionA(TransactionA::new());
         let transaction_b:Transactions = Transactions::TransactionB(TransactionB::new());
 
