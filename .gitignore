@@ -3,3 +3,6 @@
 commit.md
 .claude
 ALGORITHMS_TO_STUDY*
+*.o
+test_binary_search
+test_sparse_set

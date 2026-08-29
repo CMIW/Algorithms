@@ -1,7 +1,7 @@
 use std::str::FromStr;
 
 /// Checks if a given 9x9 Sudoku board is valid.
-fn valid_sudoku(board: &[[&str; 9]; 9]) -> bool {
+pub fn valid_sudoku(board: &[[&str; 9]; 9]) -> bool {
     // Arrays to track seen numbers in rows, columns, and sub-grids.
     // Each element is a 9-bit `u16` where each bit represents a number 1-9.
     let mut rows: [u16; 9] = [0; 9];
