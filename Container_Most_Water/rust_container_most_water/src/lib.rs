@@ -1,4 +1,4 @@
-pub fn max_area<const N: usize>(heights: [u32; N]) -> u32 {
+pub fn max_area(heights: &[u32]) -> u32 {
     let mut area = 0;
     let len = heights.len() - 1;
     for i in 0..=len {
@@ -18,11 +18,11 @@ mod tests {
 
     #[test]
     fn test1() {
-        assert_eq!(36, max_area([1,7,2,5,4,7,3,6]));
+        assert_eq!(36, max_area(&[1, 7, 2, 5, 4, 7, 3, 6]));
     }
 
     #[test]
     fn test2() {
-        assert_eq!(4, max_area([2,2,2]));
+        assert_eq!(4, max_area(&[2, 2, 2]));
     }
 }

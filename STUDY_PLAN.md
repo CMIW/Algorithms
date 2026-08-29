@@ -30,6 +30,8 @@
 - [ ] Linked List
 - [ ] Binary Tree / BST
 - [ ] Heap / Priority Queue
+- [x] Bounded Top K (bounded heap) — `Bounded_Top_K_Heap/`
+- [x] Sparse Set — `Sparse Set/`
 - [ ] Trie
 - [ ] Union Find (Disjoint Set)
 
@@ -44,7 +46,7 @@
 These are the problem-solving patterns that underlie most LeetCode problems. Distinct from classic algorithms — these are *techniques* you apply at the code level.
 
 ### Array / String Techniques
-- [ ] Two Pointers
+- [x] Two Pointers
 - [ ] Sliding Window (fixed size)
 - [ ] Sliding Window (variable size)
 - [ ] Prefix Sum
@@ -92,6 +94,31 @@ These are the problem-solving patterns that underlie most LeetCode problems. Dis
 - [ ] Monotonic Queue (deque)
 - [ ] Union Find with path compression + rank
 - [ ] Segment Tree (range queries)
+
+---
+
+## Technique Notes
+
+Short references for the base techniques — the definition and where a worked example lives in this repo.
+
+### Two Pointers (convergence)
+
+**What it is:** two indices scan the array from opposite ends toward each other; each step discards the candidate the "weaker" end can no longer improve, so at least one pointer moves every iteration. Total work is `O(n)` because the pointers only ever meet in the middle. This is the classic trick for turning a nested loop into a linear scan, and it's the pattern behind the converging-pointer problems in this repo.
+
+**Where in this repo:**
+- `Trapping_Rain_Water/rust_trapping_rain_water#max_area_1` — the cleanest convergent pair: `l` and `r` advance inward while tracking `l_max`/`r_max`.
+- `Container_Most_Water/rust_container_most_water#max_area` — max-area container; note this repo version evaluates both ends per step instead of moving one pointer, so compare it against the moving-pointer version to see what convergence buys.
+- `Valid_Palindrome/rust_valid_palindrome#valid_palindrome` — characters compared from both ends.
+
+**Search terms:** "two pointers technique", "two sun sorted array convergence", "container with most water two pointers", "trapping rain water two pointers".
+
+### Sliding Window
+
+**What it is:** a contiguous window defined by a `left` and a `right` index slides across the input, maintaining a running aggregate in `O(1)` per step. **Fixed-size** windows keep a constant width and just update the aggregate as the window shifts. **Variable-size** windows grow `right` while the window's aggregate still satisfies the constraint, and shrink `left` when it doesn't — which is what "longest substring with at most K distinct chars" style problems use. Both amount to `O(n)` for problems a naive nested loop solves in `O(n^2)`, by observing the ends only move forward.
+
+**Where in this repo:** not implemented yet — it's the #1 gap per the Suggested Study Order below; see the Sliding Window checklist section.
+
+**Search terms:** "sliding window technique", "fixed-size sliding window", "variable-size sliding window", "longest substring without repeating characters", "minimum window substring".
 
 ---
 
