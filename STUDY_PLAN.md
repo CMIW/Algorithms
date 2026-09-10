@@ -24,6 +24,20 @@
 - [ ] Prim (Minimum Spanning Tree)
 - [ ] Topological Sort
 
+### Scheduling Algorithms
+*Task / CPU scheduling. These are classic algorithms, each built on a small set of base techniques (greedy, sorting, heaps, queues) that transfer directly to LeetCode problems.*
+
+- [ ] Activity Selection — **greedy**: per step, keep the job with the earliest finish time that doesn't overlap.
+- [ ] Earliest Deadline First (EDF) — **greedy + sort by deadline**: always run the ready job with the nearest deadline.
+- [ ] Shortest Job First (SJF) — **min-heap**: always pick the job with the smallest total processing time.
+- [ ] Shortest Remaining Time First (SRTF) — **SJF + preemption**: min-heap ordered by *remaining* time, re-evaluated on each arrival.
+- [ ] Round Robin — **FIFO queue + time quantum**: circular queue; preempt on quantum expiry, append to tail.
+- [ ] Priority Scheduling — **priority queue / heap**: always run highest-priority job; variants add aging to avoid starvation.
+- [ ] Job Sequencing with Deadlines — **greedy by profit + Union Find** over slots (or sort by profit + scan).
+- [ ] Multilevel Feedback Queue — **multiple queues + aging**: jobs demote/promote between priority tiers.
+
+**The recurring techniques:** `greedy selection` (activity selection, EDF, job sequencing), `min-heap` (SJF, SRTF, priority scheduling), `FIFO queue` (round robin, MLFQ tiers), `sorting` (EDF, job sequencing), and `preemption` (weighing a fresh arrival against the running job).
+
 ### Data Structures
 - [ ] Stack
 - [ ] Queue
