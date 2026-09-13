@@ -33,4 +33,4 @@ A study repository containing implementations of classic algorithms, data struct
 
 ## Study Guides
 
-- **[STUDY_PLAN.md](STUDY_PLAN.md)** — Comprehensive checklist covering classic algorithms, data structures, LeetCode patterns, base algorithm techniques, and study order.
+- **[STUDY_PLAN.md](STUDY_PLAN.md)** — Comprehensive study plan: complexity analysis, data structures, core techniques, named-algorithm domains (incl. scheduling and Operations Research / linear programming algorithms), LeetCode patterns by family, and a suggested study order.

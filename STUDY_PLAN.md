@@ -1,117 +1,93 @@
 # Algorithms Study Plan
 
-## Classic Algorithms Checklist
+Focused on algorithms actually worth knowing: classic named algorithms, the cross-cutting techniques behind them, and LeetCode-style practice. Course material from *Investigación de Operaciones* is folded in where it maps onto real algorithm families (tagged `IO Semana N`).
 
-### Sorting
+---
+
+## 1. Complexity & Analysis
+
+- [ ] Big-O / Big-Θ / Big-Ω
+- [ ] Amortized analysis
+- [ ] Recurrence relations / recursion trees (`IO Semana 2`)
+
+---
+
+## 2. Data Structures
+
+- [ ] Stack / Queue
+- [ ] Linked List
+- [ ] Heap / Priority Queue
+- [ ] Binary Tree / BST
+- [ ] Trie
+- [ ] Union Find (with path compression + rank)
+- [ ] Monotonic Stack
+- [ ] Monotonic Queue (deque)
+- [ ] Segment Tree (range queries)
+- [x] Sparse Set — `Sparse Set/`
+- [x] Bounded Top K (bounded heap) — `Bounded_Top_K_Heap/`
+
+---
+
+## 3. Core Techniques
+
+Cross-cutting patterns. Each technique is a building block reused by the named algorithms in Section 5 and by the LeetCode problems in Section 6.
+
+### Two Pointers & Sliding Window
+- [x] Two Pointers
+- [ ] Sliding Window (fixed size)
+- [ ] Sliding Window (variable size)
+
+### Array & String
+- [ ] Prefix Sum
+
+### Hashing
+- [ ] Frequency map (count occurrences)
+- [ ] Hash Set for O(1) lookup
+- [ ] Bucket Sort / Pigeonhole
+
+### Sorting & Searching
 - [x] Insertion Sort
 - [x] Quick Sort
 - [ ] Merge Sort
 - [ ] Heap Sort
 - [ ] Counting Sort
 - [ ] Radix Sort
-
-### Searching
 - [x] Binary Search
-- [ ] Linear Search
-- [ ] Depth-First Search (DFS)
-- [ ] Breadth-First Search (BFS)
-
-### Graph Algorithms
-- [ ] Floyd-Warshall *(folder exists, no implementation)*
-- [ ] Dijkstra
-- [ ] Bellman-Ford
-- [ ] Kruskal (Minimum Spanning Tree)
-- [ ] Prim (Minimum Spanning Tree)
-- [ ] Topological Sort
-
-### Scheduling Algorithms
-*Task / CPU scheduling. These are classic algorithms, each built on a small set of base techniques (greedy, sorting, heaps, queues) that transfer directly to LeetCode problems.*
-
-- [ ] Activity Selection — **greedy**: per step, keep the job with the earliest finish time that doesn't overlap.
-- [ ] Earliest Deadline First (EDF) — **greedy + sort by deadline**: always run the ready job with the nearest deadline.
-- [ ] Shortest Job First (SJF) — **min-heap**: always pick the job with the smallest total processing time.
-- [ ] Shortest Remaining Time First (SRTF) — **SJF + preemption**: min-heap ordered by *remaining* time, re-evaluated on each arrival.
-- [ ] Round Robin — **FIFO queue + time quantum**: circular queue; preempt on quantum expiry, append to tail.
-- [ ] Priority Scheduling — **priority queue / heap**: always run highest-priority job; variants add aging to avoid starvation.
-- [ ] Job Sequencing with Deadlines — **greedy by profit + Union Find** over slots (or sort by profit + scan).
-- [ ] Multilevel Feedback Queue — **multiple queues + aging**: jobs demote/promote between priority tiers.
-
-**The recurring techniques:** `greedy selection` (activity selection, EDF, job sequencing), `min-heap` (SJF, SRTF, priority scheduling), `FIFO queue` (round robin, MLFQ tiers), `sorting` (EDF, job sequencing), and `preemption` (weighing a fresh arrival against the running job).
-
-### Data Structures
-- [ ] Stack
-- [ ] Queue
-- [ ] Linked List
-- [ ] Binary Tree / BST
-- [ ] Heap / Priority Queue
-- [x] Bounded Top K (bounded heap) — `Bounded_Top_K_Heap/`
-- [x] Sparse Set — `Sparse Set/`
-- [ ] Trie
-- [ ] Union Find (Disjoint Set)
-
-### Design Patterns
-- [x] Builder
-- [x] Factory Method
-
----
-
-## Base Algorithm Techniques Checklist
-
-These are the problem-solving patterns that underlie most LeetCode problems. Distinct from classic algorithms — these are *techniques* you apply at the code level.
-
-### Array / String Techniques
-- [x] Two Pointers
-- [ ] Sliding Window (fixed size)
-- [ ] Sliding Window (variable size)
-- [ ] Prefix Sum
-- [ ] Kadane's Algorithm (max subarray)
-
-### Hashing
-- [ ] Frequency Map (count occurrences)
-- [ ] Hash Set for O(1) lookup
-- [ ] Bucket Sort / Pigeonhole
-
-### Recursion & Combinatorics
-- [ ] Recursion with backtracking
-- [ ] Subset generation
-- [ ] Permutation generation
-- [ ] Pruning
+- [ ] Parametric search (binary search on answer)
 
 ### Divide & Conquer
-- [ ] Merge Sort (canonical D&C)
+*Merge Sort (see Sorting) is the canonical D&C algorithm.*
 - [ ] Binary search on answer (parametric search)
-
-### Dynamic Programming
-- [ ] Top-down (memoization)
-- [ ] Bottom-up (tabulation)
-- [ ] 1D state DP
-- [ ] 2D state DP
-- [ ] Interval DP
-
-### Graph Traversal
-- [ ] DFS (iterative + recursive)
-- [ ] BFS (level-order)
-- [ ] Topological sort (Kahn's algorithm)
-- [ ] Cycle detection (directed / undirected)
 
 ### Greedy
 - [ ] Interval scheduling / greedy selection
 - [ ] Greedy with sorting
 
-### Tree-Specific
-- [ ] DFS on trees (pre/in/post-order)
-- [ ] BFS on trees (level-order)
+### Recursion & Backtracking
+- [ ] Recursion with backtracking
+- [ ] Subset generation
+- [ ] Permutation generation
+- [ ] Pruning
+
+### Graph & Tree Traversal
+- [ ] DFS (iterative + recursive)
+- [ ] BFS (level-order)
+- [ ] Topological sort (Kahn's algorithm)
+- [ ] Cycle detection (directed / undirected)
+- [ ] Tree walks: pre/in/post-order (DFS)
+- [ ] Tree level-order (BFS)
 - [ ] Path problems (root-to-leaf)
 
-### Advanced Structures
-- [ ] Monotonic Stack
-- [ ] Monotonic Queue (deque)
-- [ ] Union Find with path compression + rank
-- [ ] Segment Tree (range queries)
+### Dynamic Programming
+- [ ] Top-down (memoization)
+- [ ] Bottom-up (tabulation)
+- [ ] 1D state DP (e.g., Kadane / max subarray)
+- [ ] 2D state DP
+- [ ] Interval DP
 
 ---
 
-## Technique Notes
+## 4. Technique Notes
 
 Short references for the base techniques — the definition and where a worked example lives in this repo.
 
@@ -130,17 +106,67 @@ Short references for the base techniques — the definition and where a worked e
 
 **What it is:** a contiguous window defined by a `left` and a `right` index slides across the input, maintaining a running aggregate in `O(1)` per step. **Fixed-size** windows keep a constant width and just update the aggregate as the window shifts. **Variable-size** windows grow `right` while the window's aggregate still satisfies the constraint, and shrink `left` when it doesn't — which is what "longest substring with at most K distinct chars" style problems use. Both amount to `O(n)` for problems a naive nested loop solves in `O(n^2)`, by observing the ends only move forward.
 
-**Where in this repo:** not implemented yet — it's the #1 gap per the Suggested Study Order below; see the Sliding Window checklist section.
+**Where in this repo:** not implemented yet — it's the #1 gap per the Suggested Study Order below; see the Sliding Window section.
 
 **Search terms:** "sliding window technique", "fixed-size sliding window", "variable-size sliding window", "longest substring without repeating characters", "minimum window substring".
 
 ---
 
-## LeetCode Patterns Coverage
+## 5. Named-Algorithm Domains
+
+Named algorithms grouped by the technique/family they belong to. These are the classic, textbook-grade algorithms — the ones worth actually implementing from scratch.
+
+### Dynamic Programming Classics
+- [ ] 0/1 Knapsack (`IO Semana 3`)
+- [ ] Matrix Chain Multiplication (`IO Semana 6`)
+- [ ] Optimal Binary Search Tree (`IO Semana 6`)
+- [ ] Equipment Replacement (`IO Semana 4`)
+- [ ] Sport series win probability (`IO Semana 5`)
+
+### Shortest Paths & Networks
+- [ ] Dijkstra (non-neg weights)
+- [ ] Bellman-Ford (negative weights)
+- [ ] Floyd-Warshall (all-pairs) *(folder exists, no implementation)*
+- [ ] Transportation problem / min-cost flow (`IO Semana 12`)
+
+### Minimum Spanning Tree
+- [ ] Kruskal (Union-Find)
+- [ ] Prim (heap)
+
+### Matching & Assignment
+- [ ] Hungarian method — assignment problem, min-weight bipartite matching (`IO Semana 14`)
+
+### Scheduling
+*Task / CPU scheduling — classic algorithms each built on a small set of base techniques (greedy, sorting, heaps, queues):*
+
+- [ ] Activity Selection — **greedy**: per step, keep the job with the earliest finish time that doesn't overlap.
+- [ ] Earliest Deadline First (EDF) — **greedy + sort by deadline**.
+- [ ] Shortest Job First (SJF) / Shortest Remaining Time First (SRTF) — **min-heap** on total / remaining time, with preemption.
+- [ ] Round Robin — **FIFO queue + time quantum**, preempt on quantum expiry.
+- [ ] Priority Scheduling — **priority queue / heap**; variants add aging against starvation.
+- [ ] Job Sequencing with Deadlines — **greedy by profit + Union Find** over slots (or sort by profit + scan).
+- [ ] Multilevel Feedback Queue — **multiple queues + aging**, jobs demote/promote between tiers.
+
+### Project Management
+- [ ] CPM — Critical Path Method / longest path in a DAG (`IO Semana 15`)
+
+### Linear Programming
+- [ ] Simplex method (`IO Semana 9-10`)
+- [ ] Big-M method (`IO Semana 11`)
+- [ ] Two-phase method
+
+---
+
+## 6. Design Patterns
+
+- [x] Builder
+- [x] Factory Method
+
+---
+
+## 7. LeetCode Patterns by Family
 
 ### Arrays & Hashing
-*Base algorithms: Hash Map, Hash Set, Prefix/Suffix Arrays, Bucket Sort*
-
 - [x] Contains Duplicates
 - [x] Valid Anagram
 - [x] Two Sum
@@ -152,8 +178,6 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Encode and Decode Strings
 
 ### Two Pointers
-*Base algorithm: Two Pointers*
-
 - [x] Valid Palindrome
 - [x] Container With Most Water
 - [x] Trapping Rain Water
@@ -161,8 +185,7 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] 3Sum
 
 ### Sliding Window
-*Base algorithm: Sliding Window — **not started***
-
+*Base technique: Sliding Window — **not started***
 - [ ] Best Time to Buy and Sell Stock
 - [ ] Longest Substring Without Repeating Characters
 - [ ] Longest Repeating Character Replacement
@@ -170,8 +193,7 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Sliding Window Maximum
 
 ### Stack
-*Base algorithm: Stack, Monotonic Stack — **not started***
-
+*Base techniques: Stack, Monotonic Stack — **not started***
 - [ ] Valid Parentheses
 - [ ] Min Stack
 - [ ] Evaluate Reverse Polish Notation
@@ -181,16 +203,14 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Largest Rectangle in Histogram
 
 ### Binary Search
-*Base algorithm: Binary Search (classic done, LeetCode variants missing)*
-
+*Base technique: Binary Search (classic done, variants missing)*
 - [ ] Search in Rotated Sorted Array
 - [ ] Find Minimum in Rotated Sorted Array
-- [ ] Koko Eating Bananas
+- [ ] Koko Eating Bananas (parametric search)
 - [ ] Search a 2D Matrix
 
 ### Linked List
 *Base data structure: Linked List — **not started***
-
 - [ ] Reverse Linked List
 - [ ] Merge Two Sorted Lists
 - [ ] Linked List Cycle
@@ -201,7 +221,6 @@ Short references for the base techniques — the definition and where a worked e
 
 ### Trees
 *Base data structure: Binary Tree / BST — **not started***
-
 - [ ] Invert Binary Tree
 - [ ] Maximum Depth of Binary Tree
 - [ ] Diameter of Binary Tree
@@ -215,14 +234,12 @@ Short references for the base techniques — the definition and where a worked e
 
 ### Tries
 *Base data structure: Trie — **not started***
-
 - [ ] Implement Trie
 - [ ] Design Add and Search Words
 - [ ] Word Search II
 
 ### Heap / Priority Queue
 *Base data structure: Heap — partially covered via Top K Frequent*
-
 - [ ] Kth Largest Element in Stream
 - [ ] K Closest Points to Origin
 - [ ] Kth Largest Element in Array
@@ -230,8 +247,7 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Median from Data Stream
 
 ### Backtracking
-*Base algorithm: Recursion / Backtracking — **not started***
-
+*Base technique: Recursion / Backtracking — **not started***
 - [ ] Subsets
 - [ ] Combination Sum
 - [ ] Permutations
@@ -241,8 +257,7 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Letter Combinations of Phone Number
 
 ### Graphs
-*Base algorithms: BFS, DFS, Union Find — **not started***
-
+*Base techniques: BFS, DFS, Union Find — **not started***
 - [ ] Number of Islands
 - [ ] Clone Graph
 - [ ] Max Area of Island
@@ -257,7 +272,6 @@ Short references for the base techniques — the definition and where a worked e
 
 ### Advanced Graphs
 *Base algorithms: Dijkstra, Bellman-Ford, Kruskal, Prim*
-
 - [ ] Reconstruct Itinerary (Eulerian path)
 - [ ] Min Cost to Connect All Points (Prim/Kruskal)
 - [ ] Network Delay Time (Dijkstra)
@@ -265,22 +279,20 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Cheapest Flights Within K Stops (Bellman-Ford)
 
 ### 1D Dynamic Programming
-*Base algorithm: DP — **not started***
-
+*Base technique: DP — **not started***
 - [ ] Climbing Stairs
 - [ ] Min Cost Climbing Stairs
 - [ ] House Robber
 - [ ] House Robber II
 - [ ] Longest Palindromic Substring
 - [ ] Palindromic Substrings
-- [ ] Coin Change
+- [ ] Coin Change (unbounded knapsack)
 - [ ] Maximum Product Subarray
 - [ ] Word Break
 - [ ] Longest Increasing Subsequence
-- [ ] Partition Equal Subset Sum
+- [ ] Partition Equal Subset Sum (0/1 knapsack)
 
 ### 2D Dynamic Programming
-
 - [ ] Unique Paths
 - [ ] Longest Common Subsequence
 - [ ] Best Time to Buy/Sell Stock with Cooldown
@@ -291,7 +303,6 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Regular Expression Matching
 
 ### Greedy
-
 - [ ] Maximum Subarray (Kadane's Algorithm)
 - [ ] Jump Game
 - [ ] Jump Game II
@@ -300,7 +311,6 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Merge Triplets to Form Target
 
 ### Intervals
-
 - [ ] Insert Interval
 - [ ] Merge Intervals
 - [ ] Non-Overlapping Intervals
@@ -309,7 +319,6 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Minimum Interval to Include Each Query
 
 ### Math & Geometry
-
 - [ ] Rotate Image
 - [ ] Spiral Matrix
 - [ ] Set Matrix Zeroes
@@ -318,7 +327,6 @@ Short references for the base techniques — the definition and where a worked e
 - [ ] Pow(x, n)
 
 ### Bit Manipulation
-
 - [ ] Single Number
 - [ ] Number of 1 Bits
 - [ ] Counting Bits
@@ -327,15 +335,17 @@ Short references for the base techniques — the definition and where a worked e
 
 ---
 
-## Suggested Study Order
+## 8. Suggested Study Order
 
 1. **Sliding Window** — biggest gap relative to what you've covered
 2. **Stack / Monotonic Stack**
-3. **Binary Search variants**
+3. **Binary Search variants** (incl. parametric search)
 4. **Linked List**
 5. **Trees (BFS/DFS first, then BST)**
 6. **Heap / Priority Queue**
 7. **Backtracking**
-8. **Graphs**
-9. **1D DP**
-10. **Greedy, Intervals, 2D DP, Advanced Graphs**
+8. **Graphs & Advanced Graphs** (Dijkstra, Bellman-Ford, Kruskal, Prim)
+9. **DP: 1D → 2D → Interval**, then **DP classics** (Knapsack, Matrix Chain, Optimal BST) — these reinforce the LeetCode DP lists
+10. **Greedy, Intervals**
+11. **Hungarian method + CPM** (short, self-contained, course-aligned)
+12. **Linear Programming / Transportation / Scheduling** — as needed for the course; least transferable to LeetCode
