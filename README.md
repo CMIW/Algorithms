@@ -14,6 +14,7 @@ A study repository containing implementations of classic algorithms, data struct
 - **[Group Anagrams](Group_Anagrams/)** (`Rust`)
 - **[Insertion Sort](Insertion_Sort/)** (`Rust`)
 - **[Longest Consecutive Sequence](Longest_Consecutive_Sequence/)** (`Rust`)
+- **[Longest Repeating Character Replacement](Longest_Repeating_Character_Replacement/)** (`Rust`)
 - **[Longest Substring Without Repeating](Longest_Substring_Without_Repeating/)** (`Rust`)
 - **[Product Except Self](Product_Except_Self/)** (`Rust`)
 - **[Quick Sort](Quick_Sort/)** (`Rust`)
