@@ -1,0 +1,6 @@
+[package]
+name = "rust_longest_substring_without_repeating"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

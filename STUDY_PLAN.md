@@ -35,7 +35,7 @@ Cross-cutting patterns. Each technique is a building block reused by the named a
 ### Two Pointers & Sliding Window
 - [x] Two Pointers
 - [ ] Sliding Window (fixed size)
-- [ ] Sliding Window (variable size)
+- [x] Sliding Window (variable size)
 
 ### Array & String
 - [ ] Prefix Sum
@@ -106,7 +106,7 @@ Short references for the base techniques — the definition and where a worked e
 
 **What it is:** a contiguous window defined by a `left` and a `right` index slides across the input, maintaining a running aggregate in `O(1)` per step. **Fixed-size** windows keep a constant width and just update the aggregate as the window shifts. **Variable-size** windows grow `right` while the window's aggregate still satisfies the constraint, and shrink `left` when it doesn't — which is what "longest substring with at most K distinct chars" style problems use. Both amount to `O(n)` for problems a naive nested loop solves in `O(n^2)`, by observing the ends only move forward.
 
-**Where in this repo:** not implemented yet — it's the #1 gap per the Suggested Study Order below; see the Sliding Window section.
+**Where in this repo:** `Longest_Substring_Without_Repeating/rust_longest_substring_without_repeating#length_of_longest_substring` — variable-size window: a `HashSet` mirroring `chars[b..=f]`, `f` grows, `b` ejects on a duplicate. Fixed-size windows aren't implemented yet (see Sliding Window Maximum in the Sliding Window section).
 
 **Search terms:** "sliding window technique", "fixed-size sliding window", "variable-size sliding window", "longest substring without repeating characters", "minimum window substring".
 
@@ -185,9 +185,9 @@ Named algorithms grouped by the technique/family they belong to. These are the c
 - [ ] 3Sum
 
 ### Sliding Window
-*Base technique: Sliding Window — **not started***
+*Base technique: Sliding Window (variable-size done)*
 - [ ] Best Time to Buy and Sell Stock
-- [ ] Longest Substring Without Repeating Characters
+- [x] Longest Substring Without Repeating Characters
 - [ ] Longest Repeating Character Replacement
 - [ ] Minimum Window Substring
 - [ ] Sliding Window Maximum
@@ -337,7 +337,7 @@ Named algorithms grouped by the technique/family they belong to. These are the c
 
 ## 8. Suggested Study Order
 
-1. **Sliding Window** — biggest gap relative to what you've covered
+1. **Sliding Window** — variable-size done (`Longest Substring`); remaining: fixed-size windows, `Minimum Window Substring`, `Longest Repeating Character Replacement`
 2. **Stack / Monotonic Stack**
 3. **Binary Search variants** (incl. parametric search)
 4. **Linked List**
